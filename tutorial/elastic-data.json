@@ -1,0 +1,159 @@
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "dbserver1.inventory.customers",
+        "_type" : "_doc",
+        "_id" : "1001",
+        "_score" : 1.0,
+        "_source" : {
+          "before" : null,
+          "after" : {
+            "id" : 1001,
+            "first_name" : "Sally",
+            "last_name" : "Thomas",
+            "email" : "sally.thomas@acme.com"
+          },
+          "source" : {
+            "version" : "1.7.1.Final",
+            "connector" : "mysql",
+            "name" : "dbserver1",
+            "ts_ms" : 1637055154530,
+            "snapshot" : "true",
+            "db" : "inventory",
+            "sequence" : null,
+            "table" : "customers",
+            "server_id" : 0,
+            "gtid" : null,
+            "file" : "mysql-bin.000003",
+            "pos" : 156,
+            "row" : 0,
+            "thread" : null,
+            "query" : null
+          },
+          "op" : "r",
+          "ts_ms" : 1637055154531,
+          "transaction" : null
+        }
+      },
+      {
+        "_index" : "dbserver1.inventory.customers",
+        "_type" : "_doc",
+        "_id" : "1003",
+        "_score" : 1.0,
+        "_source" : {
+          "before" : null,
+          "after" : {
+            "id" : 1003,
+            "first_name" : "Edward",
+            "last_name" : "Walker",
+            "email" : "ed@walker.com"
+          },
+          "source" : {
+            "version" : "1.7.1.Final",
+            "connector" : "mysql",
+            "name" : "dbserver1",
+            "ts_ms" : 1637055154536,
+            "snapshot" : "true",
+            "db" : "inventory",
+            "sequence" : null,
+            "table" : "customers",
+            "server_id" : 0,
+            "gtid" : null,
+            "file" : "mysql-bin.000003",
+            "pos" : 156,
+            "row" : 0,
+            "thread" : null,
+            "query" : null
+          },
+          "op" : "r",
+          "ts_ms" : 1637055154536,
+          "transaction" : null
+        }
+      },
+      {
+        "_index" : "dbserver1.inventory.customers",
+        "_type" : "_doc",
+        "_id" : "1004",
+        "_score" : 1.0,
+        "_source" : {
+          "before" : null,
+          "after" : {
+            "id" : 1004,
+            "first_name" : "Anne",
+            "last_name" : "Kretchmar",
+            "email" : "annek@noanswer.org"
+          },
+          "source" : {
+            "version" : "1.7.1.Final",
+            "connector" : "mysql",
+            "name" : "dbserver1",
+            "ts_ms" : 1637055154536,
+            "snapshot" : "true",
+            "db" : "inventory",
+            "sequence" : null,
+            "table" : "customers",
+            "server_id" : 0,
+            "gtid" : null,
+            "file" : "mysql-bin.000003",
+            "pos" : 156,
+            "row" : 0,
+            "thread" : null,
+            "query" : null
+          },
+          "op" : "r",
+          "ts_ms" : 1637055154536,
+          "transaction" : null
+        }
+      },
+      {
+        "_index" : "dbserver1.inventory.customers",
+        "_type" : "_doc",
+        "_id" : "1002",
+        "_score" : 1.0,
+        "_source" : {
+          "before" : null,
+          "after" : {
+            "id" : 1002,
+            "first_name" : "George",
+            "last_name" : "Bailey",
+            "email" : "gbailey@foobar.com"
+          },
+          "source" : {
+            "version" : "1.7.1.Final",
+            "connector" : "mysql",
+            "name" : "dbserver1",
+            "ts_ms" : 1637055154531,
+            "snapshot" : "true",
+            "db" : "inventory",
+            "sequence" : null,
+            "table" : "customers",
+            "server_id" : 0,
+            "gtid" : null,
+            "file" : "mysql-bin.000003",
+            "pos" : 156,
+            "row" : 0,
+            "thread" : null,
+            "query" : null
+          },
+          "op" : "r",
+          "ts_ms" : 1637055154531,
+          "transaction" : null
+        }
+      }
+    ]
+  }
+}

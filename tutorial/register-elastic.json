@@ -1,18 +1,31 @@
 {
     "name": "elastic-sink",
     "config": {
-    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
-    "tasks.max": "1",
-    "topics": "dbserver1.inventory.customers",
-    "key.ignore": "false",
-    "connection.url": "http://elastic:9200",
-    "topic.index.map": "dbserver1.inventory.customers:customers_index",
-    "type.name": "customer",
-    "transforms":"key",
-    "transforms.key.type":"org.apache.kafka.connect.transforms.ExtractField$Key",
-    "transforms.key.field":"id",
-    "behavior.on.null.values": "DELETE",
-    "behavior.on.malformed.documents": "WARN",
-    "write.method": "UPSERT"
+        "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+        "connection.url": "http://elastic:9200",
+        "connection.username": null,
+        "connection.password": null,
+        "linger.ms": 1000,
+
+        "tasks.max": "1",
+        
+        "key.ignore": false,
+        "schema.ignore": false,
+        "compact.map.entries": true,
+        "behavior.on.null.values": "DELETE",
+        "behavior.on.malformed.documents": "WARN",
+        "write.method": "UPSERT",
+
+        "proxy.host": "",
+        "proxy.port": 8080,
+        "proxy.username": "",
+        "proxy.password": "",
+
+        "topics": "dbserver1.inventory.customers",
+        "topic.index.map": "dbserver1.inventory.customers:customers_index",
+        "type.name": "customer",
+        "transforms":"key",
+        "transforms.key.type":"org.apache.kafka.connect.transforms.ExtractField$Key",
+        "transforms.key.field":"id"
     }
 }
