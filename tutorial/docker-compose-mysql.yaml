@@ -30,7 +30,7 @@ services:
     environment:
      - discovery.type=single-node
   connect:
-    image: debezium/connect:${DEBEZIUM_VERSION}
+    image: slalit360/connect:${DEBEZIUM_VERSION}
     ports:
      - 8083:8083
     links:
@@ -44,3 +44,11 @@ services:
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_connect_statuses
+  kibana:
+    image: elastic/kibana:7.7.0
+    ports: 
+     - 5601:5601
+    links:
+     - elastic
+    environment:
+     - ELASTICSEARCH_HOSTS=http://elastic:9200

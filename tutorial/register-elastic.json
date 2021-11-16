@@ -3,8 +3,8 @@
     "config": {
         "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
         "connection.url": "http://elastic:9200",
-        "connection.username": null,
-        "connection.password": null,
+        "connection.username": "",
+        "connection.password": "",
         "linger.ms": 1000,
 
         "tasks.max": "1",
@@ -15,11 +15,6 @@
         "behavior.on.null.values": "DELETE",
         "behavior.on.malformed.documents": "WARN",
         "write.method": "UPSERT",
-
-        "proxy.host": "",
-        "proxy.port": 8080,
-        "proxy.username": "",
-        "proxy.password": "",
 
         "topics": "dbserver1.inventory.customers",
         "topic.index.map": "dbserver1.inventory.customers:customers_index",
