@@ -44,6 +44,26 @@ services:
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_connect_statuses
+    command: 
+     - bash 
+     - -c 
+     - |
+       echo "Waiting for Kafka Connect to start listening on localhost:8083 ⏳"
+       while : ; do
+           curl_status=$$(curl -s -o /dev/null -w %{http_code} http://connect:8083/connectors)
+           echo -e $$(date) " Kafka Connect listener HTTP state: " $$curl_status " (waiting for 200)"
+           if [ $$curl_status -eq 200 ] ; then
+           break
+           fi
+           sleep 5 
+       done
+       #
+       echo -e "\n--\n+> Creating Kafka Connect SQL Server source"
+       #
+       curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" \
+           connect:8083/connectors/ -d @register-mysql-new.json
+       #
+       sleep infinity
   kibana:
     image: elastic/kibana:7.7.0
     ports: 
