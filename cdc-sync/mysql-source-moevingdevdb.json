@@ -1,0 +1,20 @@
+{
+    "name": "mysql-source-moevingdevdb",
+    "config": {
+        "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+        "tasks.max": "1",
+        "database.hostname": "db-service.moeving.tech",
+        "database.port": "3306",
+        "database.user": "modevuser",
+        "database.password": "67IojSUGZ4V50n01Ga0JGpH",
+        "database.server.id": "184054",
+        "database.server.name": "dbserver1",
+        "database.include": "moevingdevdb",
+        "database.history.kafka.bootstrap.servers": "kafka:9092",
+        "database.history.kafka.topic": "schema-changes.moevingdevdb",
+        "transforms": "route",
+        "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+        "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
+        "transforms.route.replacement": "$3"
+    }
+}

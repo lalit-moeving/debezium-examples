@@ -1,0 +1,21 @@
+{
+    "name": "elastic-sink",
+    "config": {
+        "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+        "connection.url": "http://elastic:9200",
+        "tasks.max": "1",
+        "key.ignore": false,
+        "schema.ignore": false,
+        "compact.map.entries": true,
+        "behavior.on.null.values": "DELETE",
+        "behavior.on.malformed.documents": "WARN",
+        "write.method": "UPSERT",
+
+        "topics": "dbserver1.inventory.customers",
+        "topic.index.map": "dbserver1.inventory.customers:customers_index",
+        "type.name": "customer",
+        "transforms":"key",
+        "transforms.key.type":"org.apache.kafka.connect.transforms.ExtractField$Key",
+        "transforms.key.field":"id"
+    }
+}
