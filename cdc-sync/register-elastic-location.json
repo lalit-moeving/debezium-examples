@@ -9,7 +9,7 @@
         "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
         "transforms.unwrap.drop.tombstones": "false",
         "transforms.key.type": "org.apache.kafka.connect.transforms.ExtractField$Key",
-        "transforms.key.field": "product_id",
+        "transforms.key.field": "FLD_LOCATION_ID",
         "key.ignore": "false",
         "behavior.on.null.values": "delete"
     }

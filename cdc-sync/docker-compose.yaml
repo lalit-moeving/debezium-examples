@@ -17,23 +17,6 @@ services:
      - zookeeper
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
-
-  mysql:
-    image: debezium/example-mysql:${DEBEZIUM_VERSION}
-    ports:
-     - 3306:3306
-    environment:
-     - MYSQL_ROOT_PASSWORD=debezium
-     - MYSQL_USER=mysqluser
-     - MYSQL_PASSWORD=mysqlpw
-
-  elastic:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
-    ports: 
-     - 9200:9200
-     - 9300:9300
-    environment:
-     - discovery.type=single-node
  
   connect:
     image: slalit360/connect:${DEBEZIUM_VERSION}
@@ -42,7 +25,7 @@ services:
     links:
      - zookeeper
      - kafka
-     - elastic
+
     environment:
      - BOOTSTRAP_SERVERS=kafka:9092
      - GROUP_ID=1
@@ -50,11 +33,20 @@ services:
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_connect_statuses
  
+    volumes:
+     - cdc-connect:/kafka/logs
+     - cdc-connect:/kafka/config
+     - cdc-connect:/kafka/data
+
   kibana:
     image: elastic/kibana:7.7.0
+
     ports: 
      - 5601:5601
-    links:
-     - elastic
     environment:
-     - ELASTICSEARCH_HOSTS=http://elastic:9200
+     - ELASTICSEARCH_HOSTS=http://elasticsearch.moeving.dev:9200
+
+
+volumes:
+  cdc-connect:
+    driver: local

@@ -18,15 +18,6 @@ services:
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
 
-  mysql:
-    image: debezium/example-mysql:${DEBEZIUM_VERSION}
-    ports:
-     - 3306:3306
-    environment:
-     - MYSQL_ROOT_PASSWORD=debezium
-     - MYSQL_USER=mysqluser
-     - MYSQL_PASSWORD=mysqlpw
-
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
     ports: 
@@ -42,7 +33,6 @@ services:
     links:
      - zookeeper
      - kafka
-     - mysql
      - elastic
     environment:
      - BOOTSTRAP_SERVERS=kafka:9092
